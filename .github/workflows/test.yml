@@ -16,7 +16,7 @@ jobs:
                   NAME: Chand Basha
               run: echo started by ${NAME}
             - name: go_to_react_folder
-              run: cd to_do_frontend/&&ls -lrta"
+              run: cd to_do_frontend/&&ls -lrta
             - name: install
               run: npm install
             - name: run

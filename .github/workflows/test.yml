@@ -10,16 +10,19 @@ jobs:
     test:
         runs-on: ubuntu-latest
         steps:
+            -   uses: actions/checkout@v3
+                name: get code
 
-            - name: start
-              env:
-                  NAME: Chand Basha
-              run: echo started by ${NAME}
-            - uses: actions/checkout@v3
-            - name: go_to_react_folder
-              run: cd to_do_frontend/&&ls -lrta
-            - name: install
-              run: npm install
-            - name: run
-              run: npm start
-              
+            -   name: setup nodejs
+                uses: actions/setup-node@v4
+                with:
+                    node-version: '18'
+
+            -   name: go_to_react_folder
+                run: 
+
+            -   name: install
+                run: |
+                  cd to_do_frontend
+                  ls -lrta
+                  npm install

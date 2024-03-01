@@ -18,9 +18,6 @@ jobs:
                 with:
                     node-version: '18'
 
-            -   name: go_to_react_folder
-                run: 
-
             -   name: install
                 run: |
                   cd to_do_frontend

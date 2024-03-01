@@ -17,9 +17,10 @@ jobs:
                 uses: actions/setup-node@v4
                 with:
                     node-version: '18'
-
             -   name: install
-                run: |
-                  cd to_do_frontend
-                  ls -lrta
-                  npm install
+                working-directory: ./to_do_frontend
+                run: npm install
+
+            -   name: build
+                run: npm run build
+            

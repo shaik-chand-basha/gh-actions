@@ -1,0 +1,16 @@
+name: Test React
+
+on:
+    push:
+        branches: ["main"]
+
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+
+            - name: start
+              env:
+                  NAME: Chand Basha
+              run: echo 'started by ${NAME}'

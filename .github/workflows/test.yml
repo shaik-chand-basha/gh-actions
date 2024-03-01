@@ -2,8 +2,9 @@ name: Test React
 
 on:
     push:
-        branches: ["main"]
-
+        branches:
+            - main
+            - master
 
 jobs:
     test:
@@ -13,4 +14,9 @@ jobs:
             - name: start
               env:
                   NAME: Chand Basha
-              run: echo 'started by ${NAME}'
+              run: echo started by ${NAME}
+            - name: install
+              run: npm install
+            - name: run
+              run: npm start
+              

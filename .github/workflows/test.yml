@@ -15,6 +15,7 @@ jobs:
               env:
                   NAME: Chand Basha
               run: echo started by ${NAME}
+            - uses: actions/checkout@v3
             - name: go_to_react_folder
               run: cd to_do_frontend/&&ls -lrta
             - name: install

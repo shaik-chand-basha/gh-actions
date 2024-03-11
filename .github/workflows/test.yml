@@ -48,3 +48,6 @@ jobs:
             
             -   name: Deploying
                 run: echo "Deploying"
+
+            -   name: end
+                run: "echo ${{github.action_status}}"

@@ -1,0 +1,12 @@
+name: issue_details
+
+on: 
+    issues: 
+        types: 
+            - opened
+jobs:
+    issue_info:
+        runs-on: ubuntu-latest
+        steps:
+            - name: issue_info
+              run: echo ${{toJson(github.env.issue)}}

@@ -4,9 +4,14 @@ on:
     issues: 
         types: 
             - opened
+            - closed
+            - reopened
+    
 jobs:
     issue_info:
         runs-on: ubuntu-latest
+        if: github.event.issue.state == 'closed'
         steps:
+
             - name: issue_info
               run: echo ${{toJson(github.event.issue)}}

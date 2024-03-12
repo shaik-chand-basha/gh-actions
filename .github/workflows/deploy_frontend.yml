@@ -12,17 +12,23 @@ jobs:
     defaults:
       run:
         working-directory: to_do_frontend
-    
+
     steps:
-        - run: echo deployment started
-        - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-        - run: |
-            npm install
-        - run: npm run build
+      - run: echo deployment started
 
-        - run: |
-            cd build
-            ls -lrta
+      - run: |
+          npm install
+      - run: npm run build
+      - run: |
+          cd build
+          ls -lrta
 
-        - run: echo deployed
+      - run: echo deployed
+
+      - uses: actions/upload-artifact@v4
+        with:
+          path: to_do_frontend/build
+          name: ${{github.event_name}}-artifact
+          overwrite: true

@@ -27,7 +27,7 @@ jobs:
       - run: |
           cd build
           ls -lrta
-        if: steps.build.conclusion=='success'
+        if: steps.build.conclusion =='success'
 
       - run: echo deployed
       - run: echo "artifact_name=${{github.event_name}}-artifact" >> $GITHUB_OUTPUT

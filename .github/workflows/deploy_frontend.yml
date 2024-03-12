@@ -13,7 +13,7 @@ jobs:
       run:
         working-directory: to_do_frontend
     outputs:
-      artifact_name: $${{steps.artifact_name.outputs.artifact_name}}
+      artifact_name: ${{steps.artifact_name.outputs.artifact_name}}
     steps:
       - uses: actions/checkout@v3
 

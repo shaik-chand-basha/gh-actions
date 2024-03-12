@@ -28,7 +28,7 @@ jobs:
 
       - run: echo deployed
 
-      - run: echo "artifact_name=${{github.event_name}}-artifact" >> "$$GITHUB_OUTPUT"
+      - run: echo "artifact_name=${{github.event_name}}-artifact" >> "$GITHUB_OUTPUT"
         id: artifact_name
       - uses: actions/upload-artifact@v4
         with:

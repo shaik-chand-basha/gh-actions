@@ -32,3 +32,13 @@ jobs:
           path: to_do_frontend/build
           name: ${{github.event_name}}-artifact
           overwrite: true
+
+  download-artifact:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{github.event_name}}-artifact
+      - run: ls -lrta
+        

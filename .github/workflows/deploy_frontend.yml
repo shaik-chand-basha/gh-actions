@@ -14,13 +14,15 @@ jobs:
         working-directory: to_do_frontend
     
     steps:
+        - run: echo deployment started
         - uses: actions/checkout@v3
 
         - run: |
             npm install
         - run: npm run build
 
-        - working-directory: build
-          run: tree
+        - run: |
+            cd build
+            ls -lrta
 
-        - run: echo end
+        - run: echo deployed

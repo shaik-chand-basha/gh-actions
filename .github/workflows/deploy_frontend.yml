@@ -1,6 +1,6 @@
 run-name: ${{github.actor}} is deploying
 
-name: CI
+name: deploy_frontend
 
 on:
   push:

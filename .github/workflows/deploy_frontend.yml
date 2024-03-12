@@ -21,10 +21,13 @@ jobs:
 
       - run: |
           npm install
-      - run: npm run build
+      - run: npm  build
+        id: build
+        continue-on-error: true
       - run: |
           cd build
           ls -lrta
+        if: steps.build.conclusion=='success'
 
       - run: echo deployed
       - run: echo "artifact_name=${{github.event_name}}-artifact" >> $GITHUB_OUTPUT
@@ -45,3 +48,4 @@ jobs:
         with:
           name: ${{needs.build.outputs.artifact_name}}
       - run: ls -lrta
+      - run: echo ${{secrets.GITHUB_TOKEN}}

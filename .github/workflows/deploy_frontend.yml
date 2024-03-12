@@ -12,7 +12,8 @@ jobs:
     defaults:
       run:
         working-directory: to_do_frontend
-
+    outputs:
+      artifact_name: $${{steps.artifact_name.outputs.artifact_name}}
     steps:
       - uses: actions/checkout@v3
 
@@ -27,6 +28,8 @@ jobs:
 
       - run: echo deployed
 
+      - run: echo "artifact_name=${{github.event_name}}-artifact" >> "$$GITHUB_OUTPUT"
+        id: artifact_name
       - uses: actions/upload-artifact@v4
         with:
           path: to_do_frontend/build
@@ -38,7 +41,8 @@ jobs:
     needs: build
     steps:
       - uses: actions/download-artifact@v4
+        env:
+          artifact_name: ${{needs.build.outputs.artifact_name}}
         with:
-          name: ${{github.event_name}}-artifact
+          name: $artifact_name
       - run: ls -lrta
-        

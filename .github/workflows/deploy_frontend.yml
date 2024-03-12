@@ -43,5 +43,5 @@ jobs:
         env:
           artifact_name: ${{needs.build.outputs.artifact_name}}
         with:
-          name: "$artifact_name"
+          name: ${{needs.build.outputs.artifact_name}}
       - run: ls -lrta

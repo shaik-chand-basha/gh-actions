@@ -4,6 +4,9 @@ on: push
 
 jobs:
   build:
+    defaults:
+      run:
+        working-directory: "to_do_frontend/"
     strategy:
       matrix:
         node-version:

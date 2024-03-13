@@ -9,6 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: false
     defaults:
       run:
         working-directory: to_do_frontend

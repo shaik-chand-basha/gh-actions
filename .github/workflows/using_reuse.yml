@@ -5,7 +5,15 @@ on: push
 jobs:
   matrix:
     uses: "./.github/workflows/reusable.yml"
+
     with:
-      name: ${{github.actor}}
+      name: ${{github.actor_id}}
     secrets:
-      password: ${{github.actor}}
+      password: don is ${{github.actor}}
+
+  print_matrix_outputs:
+    needs: matrix
+    runs-on: ubuntu-latest
+    steps:
+      - name: print_matrix_outputs
+        run: echo "${{needs.matrix.outputs.status}}"

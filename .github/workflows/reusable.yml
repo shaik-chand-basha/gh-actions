@@ -9,7 +9,7 @@ on:
         description: "name of the actor"
     outputs:
       status:
-        value: ${{jobs.build.result}}
+        value: ${{jobs.build.outputs.step_result}}
         description: "job result"
     secrets:
       password:
@@ -22,6 +22,8 @@ jobs:
     defaults:
       run:
         working-directory: "to_do_frontend/"
+    outputs:
+      step_result: ${{steps.output.outputs.step_result}}
     strategy:
       matrix:
         node-version:
@@ -36,6 +38,7 @@ jobs:
     steps:
       - name: Get Code
         uses: actions/checkout@v3
+        id: get_code
       - name: Setup NodeJs
         uses: actions/setup-node@v3
         with:
@@ -51,3 +54,7 @@ jobs:
         run: echo "${{inputs.name}}"
       - name: Print secrets
         run: echo "${{secrets.password}}"
+
+      - name: outputs
+        run: echo "step_result=success" >> $GITHUB_OUTPUT
+        id: output

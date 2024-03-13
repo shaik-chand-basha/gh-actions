@@ -1,6 +1,20 @@
 name: reusable workflow
 
-on: workflow_call
+on:
+  workflow_call:
+    inputs:
+      name:
+        required: true
+        type: string
+        description: "name of the actor"
+    outputs:
+      status:
+        value: ${{jobs.build.result}}
+        description: "job result"
+    secrets:
+      password:
+        required: true
+        description: "I need your password buddy"
 
 jobs:
   build:
@@ -32,3 +46,8 @@ jobs:
 
       - name: Build Project
         run: npm run build
+
+      - name: Echo name
+        run: echo "${{inputs.name}}"
+      - name: Print secrets
+        run: echo "${{secrets.password}}"

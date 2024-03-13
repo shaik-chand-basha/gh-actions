@@ -5,3 +5,7 @@ on: push
 jobs:
   matrix:
     uses: "./.github/workflows/reusable.yml"
+    with:
+      name: ${{github.actor}}
+    secrets:
+      password: ${{github.actor}}

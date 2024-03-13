@@ -1,0 +1,7 @@
+name: using reusable workflow
+
+on: push
+
+jobs:
+  matrix:
+    uses: "./.github/workflows/reusable.yml"

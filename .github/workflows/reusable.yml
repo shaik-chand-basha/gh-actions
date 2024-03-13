@@ -1,19 +1,16 @@
-name: matrix_test
+name: reusable workflow
 
-on: push
+on: workflow_call
 
 jobs:
   build:
-    if: false
+    if: true
     defaults:
       run:
         working-directory: "to_do_frontend/"
     strategy:
       matrix:
         node-version:
-          - 12
-          - 14
-          - 16
           - 18
         os:
           - ubuntu-latest

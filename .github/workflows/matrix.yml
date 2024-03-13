@@ -4,6 +4,7 @@ on: push
 
 jobs:
   build:
+    if: true
     defaults:
       run:
         working-directory: "to_do_frontend/"
@@ -17,6 +18,10 @@ jobs:
         os:
           - ubuntu-latest
           - windows-latest
+        include:
+          - os: windows-latest
+            node-version: 14
+
     runs-on: ${{matrix.os}}
     steps:
       - name: Get Code
